@@ -32,10 +32,10 @@
 	}
 	
 	
-	var p1=new object();
+	var p1=new Object();
     p1.Event_Target=num.textContent;
     p1.Event_Time=new Date();
-    p1.Event_Type=e.type;
+    p1.Event_Type=p1.type;
     var con=p1.Event_Target+""+p1.Event_Time+""+p1.Event_Type;
     if(localStorage.getItem("Generate")===null) 
 	{
