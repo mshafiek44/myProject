@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="">
+        <input type="text" id="num" placeholder="enter number" >
+        <button type="button" onclick="generate()"> Generate </button>
+    </form>
+    <div id="result"></div>
+	<div id="img">
+    <script>
+
+        function generate(){
+            var num = document.getElementById("num").value;
+            var result = document.getElementById("result");
+            var chars = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+            var randomChars = []; 
+            for(var i = 1; i<= num; i++){
+                var targetChar = chars[Math.floor(Math.random()*chars.length)]
+                randomChars.push( targetChar )
+            }
+            result.innerHTML = "";
+            randomChars.forEach( el => {
+                result.innerHTML += "<button>   "+el+"   </button>"
+            }) 
+        }
+		
+		function showImage(char){
+		document.getElementById("img").innerHTML = "<img width='100px'height='100px'src='"+char+".png'>" ;
+	}
+    </script>
+</body>
+</html>

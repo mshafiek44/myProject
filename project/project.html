@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<input type="number" name="number" id='num' limit='26'>
+<button onclick="randomLetters()">Generate</button>
+<div id="buttons">
+</div>
+<div id="img">
+</body>
+</html>
+<script type="text/javascript">
+	function randomLetters()
+	{
+		size = parseInt(document.getElementById("num").value)
+		if(size <=0)
+			return;
+		var letters = 'QWERTYUIOPASDFGHLJKZXCVBNM';
+		var buttons = "";
+		for(var i = 0;i < size;i++){
+		var randomChar = letters[parseInt(Math.random()*10000 % 25)];
+			buttons += "<button onclick=\"showImage('"+randomChar+"')\">"+randomChar+"</button>";
+		}
+		document.getElementById("buttons").innerHTML = buttons;
+	}
+	
+	function showImage(char){
+		document.getElementById("img").innerHTML = "<img width='100px'height='100px'src='"+char+".png'>" ;
+	}
+	
+	
+	var p1=new object();
+    p1.Event_Target=num.textContent;
+    p1.Event_Time=new Date();
+    p1.Event_Type=e.type;
+    var con=p1.Event_Target+""+p1.Event_Time+""+p1.Event_Type;
+    if(localStorage.getItem("Generate")===null) 
+	{
+      	localStorage.setItem("Generate",con);
+    }
+    else{
+       var a= new Array(localStorage.getItem("Generate"));
+       a.push(con);
+       localStorage.setItem("Generate",a);
+    }
+ 
+</script>
